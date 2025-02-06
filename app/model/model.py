@@ -2,7 +2,6 @@ import pickle
 import re
 from pathlib import Path
 from tensorflow.keras.utils import load_img, img_to_array
-from tensorflow.keras.applications.inception_v3 import preprocess_input
 import numpy as np
 import os
 from tensorflow.keras.models import load_model
