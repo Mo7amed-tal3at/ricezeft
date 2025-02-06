@@ -43,14 +43,11 @@ async def root():
 async def ping():
     return "Hello, I am alive"
 
-# تحويل الصورة إلى مصفوفة قابلة للمعالجة
-from tensorflow.keras.applications.inception_v3 import preprocess_input
 
 def read_file_as_image(data) -> np.ndarray:
-    image = Image.open(BytesIO(data)).convert("RGB")
+    image = Image.open(BytesIO(data))
     image = image.resize((256, 256))
-    image = np.array(image)
-    image = preprocess_input(image)  # استخدم نفس pre-processing في Colab
+    image = np.array(image) 
     return image
 # مسار التنبؤ
 @app.post("/predict")
