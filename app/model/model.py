@@ -24,7 +24,8 @@ classes = ['Rice___Brown_Spot','Rice___Healthy','Rice___Leaf_Blast','Rice___Neck
 # Helper function to load and preprocess a single image
 def process_and_predict(img):
     img = img.resize((256, 256))
-    img_array = img_to_array(img)  # 
+    img_array = img_to_array(img)  #
+    img_array = img_array/255
     img_array = np.expand_dims(img_array, axis=0)  # 
     predictions = model.predict(img_array)
     res = classes[np.argmax(predictions)]
