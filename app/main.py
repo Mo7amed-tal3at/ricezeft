@@ -48,6 +48,7 @@ def read_file_as_image(data) -> np.ndarray:
     image = Image.open(BytesIO(data))
     image = image.resize((256, 256))
     image = np.array(image) 
+    image = image/255 
     return image
 # مسار التنبؤ
 @app.post("/predict")
